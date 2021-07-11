@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     public float speed;
     public bool isDestructible;
     private SFXPlayer _SFXPlayer;
+    public ParticleSystem pow;
 
     void Start() {
         _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
@@ -33,6 +34,7 @@ public class Obstacle : MonoBehaviour
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile") && isDestructible) {
             _SFXPlayer.playBasicEnemyDestroy();
+            pow.Play();
             Destroy(gameObject);
         } else if (other.CompareTag("Projectile") && !isDestructible) {
             _SFXPlayer.playIndestructableHit();
