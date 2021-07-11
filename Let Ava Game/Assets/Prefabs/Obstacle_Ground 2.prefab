@@ -203,11 +203,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
       propertyPath: m_SortingLayerID
-      value: 805602869
+      value: 1985140887
+      objectReference: {fileID: 0}
+    - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: m_MinParticleSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 388915878313211772, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 388915878313211772, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 388915878313211772, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3227780742438372181, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
       propertyPath: m_Name

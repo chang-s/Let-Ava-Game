@@ -33,10 +33,12 @@ public class Obstacle : MonoBehaviour
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile") && isDestructible) {
-            _SFXPlayer.playBasicEnemyDestroy();
             pow.Play();
+            transform.DetachChildren();
+            _SFXPlayer.playBasicEnemyDestroy();
             Destroy(gameObject);
         } else if (other.CompareTag("Projectile") && !isDestructible) {
+            pow.Play();
             _SFXPlayer.playIndestructableHit();
         }
     }
