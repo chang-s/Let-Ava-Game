@@ -21,7 +21,7 @@ public class NN_Spawner : MonoBehaviour
             _createdNN = Instantiate(naughtyNotebook, transform.position, Quaternion.identity);
 
             
-            _timeBtwSpawn = 5;
+            _timeBtwSpawn = 20;
         } else if (_createdNN == null || !_createdNN.activeInHierarchy) {
             _timeBtwSpawn -= Time.deltaTime;
         }
