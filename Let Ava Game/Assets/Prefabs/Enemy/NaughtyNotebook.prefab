@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4926518847972249206}
   - component: {fileID: 4152973541267337560}
   m_Layer: 0
-  m_Name: Naughty_Notebook
+  m_Name: NaughtyNotebook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,10 +103,11 @@ MonoBehaviour:
   startTimeTillSpawn: 4
   minTimeBtwSpawn: 1.75
   maxTimeBtwSpawn: 4
-  startSpeed: 2
+  timeBtwSpawn: 0
+  startSpeedOffset: -8
   pauseTime: 0
   runBackXPos: 0
-  runBackSpeed: -5
+  runBackSpeedOffset: -15
 --- !u!95 &4152973541267337560
 Animator:
   serializedVersion: 3

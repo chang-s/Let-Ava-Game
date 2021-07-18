@@ -86,9 +86,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4926518847972249206, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
+      propertyPath: startSpeedOffset
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926518847972249206, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
+      propertyPath: runBackSpeedOffset
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 5240911926532461253, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
       propertyPath: m_Name
-      value: Naughty_Notebook Variant
+      value: NaughtyNotebook Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
