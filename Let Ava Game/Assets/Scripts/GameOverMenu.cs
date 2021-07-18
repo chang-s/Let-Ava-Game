@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    private Player player;
-    private GameState gameState;
-    public GameObject gameOverMenuUI;
+    public Player player;
+    public GameState gameState;
     public Text distanceText;
     public Text coinText;
     public Text timeText;
 
-    void Start() {
-        player = GameObject.Find("Player").GetComponent<Player>();
-        gameState = GameObject.Find("GameState").GetComponent<GameState>();
-        
+    public void OnEnable() {
         coinText.text = ((int)gameState.coinScore).ToString();
         distanceText.text = string.Format("{0}ft", ((int)gameState.distance).ToString());
 
@@ -24,19 +21,7 @@ public class GameOverMenu : MonoBehaviour
         timeText.text = string.Format("{0}:{1}", minutes, seconds);
     }
 
-    // Update is called once per frame
-    void Update() {
-        coinText.text = ((int)gameState.coinScore).ToString();
-        distanceText.text = string.Format("{0}ft", ((int)gameState.distance).ToString());
-
-        string minutes = Mathf.Floor(gameState.time / 60).ToString("00");
-        string seconds = (gameState.time % 60).ToString("00");
-        timeText.text = string.Format("{0}:{1}", minutes, seconds);
-        
-        if (player.health <= 0) {
-            gameOverMenuUI.SetActive(true);
-            Time.timeScale = 0;
-            player.health = 5;
-        }
+    public void NextGame() {
+        SceneManager.LoadScene("Main");
     }
 }
