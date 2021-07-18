@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class MainUI : MonoBehaviour
 {
     public Player player;
-    public GameState gameState;
+    public GameManager gameManager;
     public Text healthText;
     public Text coinText;
 
     void Start() {
         healthText.text = player.health.ToString();
-        coinText.text = ((int)gameState.coinScore).ToString();
+        coinText.text = ((int)gameManager.score).ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = player.health.ToString();
-        coinText.text = ((int)gameState.coinScore).ToString();
+        coinText.text = ((int)gameManager.score).ToString();
     }
 }

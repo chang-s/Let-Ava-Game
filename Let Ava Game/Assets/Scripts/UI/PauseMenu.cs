@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public MainGame mainGame;
+    public GameManager gameManager;
 
     public void ResumeGame() {
-        mainGame.Resume();
+        gameManager.Resume();
     }  
 
     public void RestartGame() {

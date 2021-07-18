@@ -7,17 +7,17 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     public Player player;
-    public GameState gameState;
+    public GameManager gameManager;
     public Text distanceText;
     public Text coinText;
     public Text timeText;
 
     public void OnEnable() {
-        coinText.text = ((int)gameState.coinScore).ToString();
-        distanceText.text = string.Format("{0}ft", ((int)gameState.distance).ToString());
+        coinText.text = ((int)gameManager.score).ToString();
+        distanceText.text = string.Format("{0}ft", ((int)gameManager.distance).ToString());
 
-        string minutes = Mathf.Floor(gameState.time / 60).ToString("00");
-        string seconds = (gameState.time % 60).ToString("00");
+        string minutes = Mathf.Floor(gameManager.time / 60).ToString("00");
+        string seconds = (gameManager.time % 60).ToString("00");
         timeText.text = string.Format("{0}:{1}", minutes, seconds);
     }
 

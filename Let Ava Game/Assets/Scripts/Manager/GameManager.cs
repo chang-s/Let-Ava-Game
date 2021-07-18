@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGame : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public SoundManager soundManager;
-    public GameState gameState;
     public Player player;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     private bool isPaused = false;
     private bool isGameOver = false;
+
+    public float score { get; set; } = 0;
+    public float distance { get; private set; } = 0;
+    public float time { get; private set; } = 0;
+
+    public float baseSpeed;
 
     void Start() {
         // Play main music
@@ -22,8 +27,8 @@ public class MainGame : MonoBehaviour
     
     void Update()
     {
-        gameState.distance += 1.5f * Time.deltaTime;
-        gameState.time += 1.0f * Time.deltaTime;
+        distance += 1.5f * Time.deltaTime;
+        time += 1.0f * Time.deltaTime;
 
         // Handle Pause
         if (Input.GetKeyDown(KeyCode.Escape)) {

@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Heart : MonoBehaviour
 {
-    public float speed;
-    //private SFXPlayer _SFXPlayer;
-    //private GameState _gameState;
+    private SoundManager soundManager;
+    private GameManager gameManager;
 
     void Start() {
-        //_SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
-        //_gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update() {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.left * gameManager.baseSpeed * Time.deltaTime);
 
         if (transform.position.x < -24)
         {
@@ -25,14 +24,14 @@ public class Coin : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         //Disappears when hits the player
         if (other.CompareTag("Player")) {
-            //_SFXPlayer.playCoinCollect();
-            //_gameState.coinScore += 1;
+            other.GetComponent<Player>().health += 1;
+            soundManager.PlayHeartCollect();
             Destroy(gameObject);
         }
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile")) {
-            //_SFXPlayer.playCollectDestroy();
+            soundManager.PlayCollectDestroy();
             Destroy(gameObject);
         }
     }
