@@ -20,7 +20,21 @@ public class SoundManager : MonoBehaviour
     public AudioSource heartCollect;
     public AudioSource collectDestroy;
 
-    public void pauseBGM() {
+    public void StopBGM() {
+        if (mainMenuBGM.isPlaying) {
+            mainMenuBGM.Stop();
+        }
+        
+        if (mainGameBGM.isPlaying) {
+            mainGameBGM.Stop();
+        }
+
+        if (gameOverBGM.isPlaying) {
+            gameOverBGM.Stop();
+        }
+    }
+    
+    public void PauseBGM() {
         if (mainMenuBGM.isPlaying) {
             mainMenuBGM.Pause();
             mainMenuBGMPaused = true;
@@ -37,7 +51,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void resumeBGM() {
+    public void ResumeBGM() {
         if (mainMenuBGMPaused) {
             mainMenuBGM.UnPause();
         }
@@ -51,51 +65,58 @@ public class SoundManager : MonoBehaviour
         }
     }
     
-    public void playMainMenuBGM() {
+    public void PlayMainMenuBGM() {
+        StopBGM();
         mainMenuBGM.Play();
     }
 
-    public void playMainGameBGM() {
+    public void PlayMainGameBGM() {
+        StopBGM();
         mainGameBGM.Play();
     }
 
-    public void playGameOver() {
+    public void PlayGameOverBGM() {
+        StopBGM();
         gameOverBGM.Play();
     }
 
-    public void playBasicEnemyDestroy() {
+    public void PlayBasicEnemyDestroy() {
         basicEnemyDestroy.Play();
     }
 
-    public void playLightEnemyDestroy() {
+    public void PlayLightEnemyDestroy() {
         lightEnemyDestroy.Play();
     }
 
-    public void playIndestructableHit() {
+    public void PlayIndestructableHit() {
         indestructableHit.Play();
     }
     
-    public void playButtonClick() {
+    public void PlayButtonClick() {
         buttonClick.Play();
     }
 
-    public void playPlayerHit() {
+    public void PlayPlayerHit() {
         playerHit.Play();
     }
 
-    public void playPlayerShot() {
+    public void PlayPlayerShot() {
         playerShot.Play();
     }
-    public void playPlayerJump() {
+
+    public void PlayPlayerJump() {
         playerJump.Play();
     }
-    public void playCoinCollect() {
+
+    public void PlayCoinCollect() {
         coinCollect.Play();
     }
-    public void playHeartCollect() {
+
+    public void PlayHeartCollect() {
         heartCollect.Play();
     }
-    public void playCollectDestroy() {
+
+    public void PlayCollectDestroy() {
         collectDestroy.Play();
     }
 }

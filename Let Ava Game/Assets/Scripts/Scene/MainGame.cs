@@ -6,11 +6,15 @@ public class MainGame : MonoBehaviour
 {
     public SoundManager soundManager;
     public GameState gameState;
+    public Player player;
+    public GameObject pauseMenu;
+    public GameObject gameOverMenu;
     private bool isPaused = false;
+    private bool isGameOver = false;
 
     void Start() {
         // Play main music
-        soundManager.playMainGameBGM();
+        soundManager.PlayMainGameBGM();
 
         // Start timing if paused
         Time.timeScale = 1.0f;
@@ -31,24 +35,29 @@ public class MainGame : MonoBehaviour
         }
 
         // Handle Game Over
-        // if (player.health <= 0) {
-        //     gameOverMenuUI.SetActive(true);
-        //     Time.timeScale = 0;
-        //     player.health = 5;
-        // }
+        if (player.health <= 0 && !isGameOver) {
+            GameOver();
+        }
     }
 
     public void Resume() {
-        //pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        soundManager.resumeBGM();
+        soundManager.ResumeBGM();
         isPaused = false;
     }
 
-    void Pause() {
-        //pauseMenu.SetActive(true);
+    private void Pause() {
+        pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        soundManager.pauseBGM();
+        soundManager.PauseBGM();
         isPaused = true;
+    }
+
+    private void GameOver() {
+        gameOverMenu.SetActive(true);
+        Time.timeScale = 0;
+        soundManager.PlayGameOverBGM();
+        isGameOver = true;
     }
 }

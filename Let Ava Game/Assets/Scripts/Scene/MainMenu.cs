@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     
     void Start() {
         // Play main music
-        SoundManager.playMainMenuBGM();
+        SoundManager.PlayMainMenuBGM();
     }
 
     public void exitGame() {
