@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
-    public float jumpForce;
+    public SoundManager soundManager;
+    
     private Rigidbody2D rb;
-    private bool isGrounded;
-    public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
-    private int extraJumps;
-    public int extraJumpValue;
-    public ParticleSystem dust;
+
     public Animator animator;
     private Animator anim;
+    public ParticleSystem dust;
     public ProjectileBehavior projectile;
     public Transform launchOffset;
-    public int health;
-    private int prevHealth;
-    private SFXPlayer _SFXPlayer;
+
+    private bool isGrounded;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+    public float checkRadius;
+
+    public float speed;
+    public float jumpForce;
+    private int extraJumps;
+    public int extraJumpValue;
+
     public float maxProjectileSpeed;
     public float projectileChargeRate;
     public float currentShotCharge;
@@ -28,6 +32,8 @@ public class Player : MonoBehaviour
     private float _timeTillShoot = 0;
     private Vector2 targetPos;
 
+    public int health;
+    private int prevHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +43,6 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         anim.SetBool("gameOver", false);
-        _SFXPlayer = GameObject.Find("SFXPlayer").GetComponent<SFXPlayer>();
         currentShotCharge = maxProjectileSpeed;
     }
 
@@ -98,7 +103,7 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.up * jumpForce;
         extraJumps = extraJumps - jumps;
         CreateDust();
-        _SFXPlayer.playPlayerJump();
+        soundManager.PlayPlayerJump();
     }
 
     void resetJumps() {
@@ -111,7 +116,7 @@ public class Player : MonoBehaviour
         if (_timeTillShoot <= 0) {
             ProjectileBehavior proj = Instantiate(projectile, launchOffset.position, transform.rotation);
             proj.setSpeed(currentShotCharge);
-            _SFXPlayer.playPlayerShot();
+            soundManager.PlayPlayerShot();
             currentShotCharge = 0;
             _timeTillShoot = shootRate;
         }

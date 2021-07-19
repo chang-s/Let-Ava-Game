@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NaughtyNotebook : MonoBehaviour
 {
-    private SoundManager soundManager;
     private GameManager gameManager;
 
     public GameObject paperplane;
@@ -26,7 +25,6 @@ public class NaughtyNotebook : MonoBehaviour
     private Animator animator; 
 
     void Start() {
-        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         timeTillSpawn = startTimeTillSpawn;
