@@ -12,6 +12,7 @@ public class NNProjectile : MonoBehaviour
     private SoundManager soundManager;
     private GameManager gameManager;
     Rigidbody2D rb;
+    public ParticleSystem pow;
 
     void Start() {
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -61,6 +62,8 @@ public class NNProjectile : MonoBehaviour
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile")) {
+            pow.Play();
+            transform.DetachChildren();
             soundManager.PlayLightEnemyDestroy();
             Destroy(gameObject);
         }

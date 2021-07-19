@@ -9,6 +9,7 @@ public class Obstacle : MonoBehaviour
     public bool isDestructible;
     private SoundManager soundManager;
     private GameManager gameManager;
+    public ParticleSystem pow;
 
     void Start() {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
@@ -34,9 +35,12 @@ public class Obstacle : MonoBehaviour
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile") && isDestructible) {
+            pow.Play();
+            transform.DetachChildren();
             soundManager.PlayBasicEnemyDestroy();
             Destroy(gameObject);
         } else if (other.CompareTag("Projectile") && !isDestructible) {
+            pow.Play();
             soundManager.PlayIndestructableHit();
         }
     }
