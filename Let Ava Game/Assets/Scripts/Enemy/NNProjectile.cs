@@ -47,7 +47,7 @@ public class NNProjectile : MonoBehaviour
 
         rb.velocity = -transform.right * (gameManager.baseSpeed + speedOffset);
 
-        if (transform.position.x < gameManager.leftScreenEdge + 3) {
+        if (transform.position.x < gameManager.leftScreenEdge - 3) {
             Destroy(gameObject);
         }
     }
