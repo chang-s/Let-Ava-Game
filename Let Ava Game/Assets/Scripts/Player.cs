@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public SoundManager soundManager;
+    public GameManager gameManager;
     
     private Rigidbody2D rb;
 
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour
         } else {
             anim.SetBool("isRunning", false);
         }
-        if (transform.position.x < -13.3) {
+        if (transform.position.x < gameManager.playerPosition) {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         } 
     }

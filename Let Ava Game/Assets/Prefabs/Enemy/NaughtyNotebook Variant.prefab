@@ -94,6 +94,10 @@ PrefabInstance:
       propertyPath: runBackSpeedOffset
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 4926518847972249206, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
+      propertyPath: runBackXPosFromLeft
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5240911926532461253, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
       propertyPath: m_Name
       value: NaughtyNotebook Variant

@@ -15,9 +15,19 @@ public class GameManager : MonoBehaviour
     public float distance { get; private set; } = 0;
     public float time { get; private set; } = 0;
 
-    public float baseSpeed;
+    //General values of screen position
+    public float leftScreenEdge { get; private set; } = -18.2f;
+    public float rightScreenEdge { get; private set; } = 18.2f;
+    public float topScreenEdge { get; private set; } = 17.0f;
+    public float bottomScreenEdge { get; private set; } = -2.9f;
+    public float groundHeight { get; private set; } = 1.7f;
+    public float playerPosition { get; private set; }
+
+    public float baseSpeed { get; private set; } = 10f;
 
     void Start() {
+        playerPosition = leftScreenEdge + 4.9f;
+        
         // Play main music
         soundManager.PlayMainGameBGM();
 

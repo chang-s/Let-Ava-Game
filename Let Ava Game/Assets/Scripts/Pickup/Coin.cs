@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
     void Update() {
         transform.Translate(Vector2.left * gameManager.baseSpeed * Time.deltaTime);
 
-        if (transform.position.x < -24)
+        if (transform.position.x < gameManager.leftScreenEdge - 3)
         {
             Destroy(gameObject);
         }

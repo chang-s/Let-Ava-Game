@@ -19,7 +19,7 @@ public class NaughtyNotebook : MonoBehaviour
     private bool hasPaused = false;
     public float pauseTime;
     private float pauseTimeTillRunBack = 0;
-    public float runBackXPos;
+    public float runBackXPosFromLeft;
     public float runBackSpeedOffset;
     private float speed;
     private Animator animator; 
@@ -37,7 +37,7 @@ public class NaughtyNotebook : MonoBehaviour
     // Update is called once per frame
     void Update() {
         // When it hits a certain closeness, it first pauses
-        if (transform.position.x < runBackXPos && !hasPaused) {
+        if (transform.position.x < (gameManager.leftScreenEdge + runBackXPosFromLeft) && !hasPaused) {
             speed = 0;
             hasPaused = true;
             pauseTimeTillRunBack = pauseTime;

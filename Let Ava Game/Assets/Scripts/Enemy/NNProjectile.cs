@@ -22,7 +22,7 @@ public class NNProjectile : MonoBehaviour
  
     void FixedUpdate() {
         // Check if it is passed the player
-        if (transform.position.x < player.transform.position.x) {
+        if (transform.position.x < gameManager.playerPosition) {
             passedPlayer = true;
         }
 
@@ -46,7 +46,7 @@ public class NNProjectile : MonoBehaviour
 
         rb.velocity = -transform.right * (gameManager.baseSpeed + speedOffset);
 
-        if (transform.position.x < -24) {
+        if (transform.position.x < gameManager.leftScreenEdge + 3) {
             Destroy(gameObject);
         }
     }

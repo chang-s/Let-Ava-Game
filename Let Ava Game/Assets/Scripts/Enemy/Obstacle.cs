@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
     void Update() {
         transform.Translate(Vector2.left * (gameManager.baseSpeed + speedOffset) * Time.deltaTime);
 
-        if (transform.position.x < -24)
+        if (transform.position.x < gameManager.leftScreenEdge - 5)
         {
             Destroy(gameObject);
         }

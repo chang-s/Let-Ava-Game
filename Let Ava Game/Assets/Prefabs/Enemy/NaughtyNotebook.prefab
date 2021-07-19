@@ -106,7 +106,7 @@ MonoBehaviour:
   timeBtwSpawn: 0
   startSpeedOffset: -8
   pauseTime: 0
-  runBackXPos: 0
+  runBackXPosFromLeft: 15
   runBackSpeedOffset: -15
 --- !u!95 &4152973541267337560
 Animator:
