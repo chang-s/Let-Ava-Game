@@ -11,6 +11,7 @@ public class Paperplane : MonoBehaviour
     private GameObject _target;
     private SFXPlayer _SFXPlayer;
     Rigidbody2D rb;
+    public ParticleSystem pow;
 
     void Start() {
         _target = GameObject.Find("Player");
@@ -59,6 +60,8 @@ public class Paperplane : MonoBehaviour
 
         //Is is destroyed by projectiles
         if (other.CompareTag("Projectile")) {
+            pow.Play();
+            transform.DetachChildren();
             _SFXPlayer.playLightEnemyDestroy();
             Destroy(gameObject);
         }
