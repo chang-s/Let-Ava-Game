@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 388915878313211772}
   - component: {fileID: 336303957452779562}
   m_Layer: 0
-  m_Name: Pow Particle
+  m_Name: PowParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
