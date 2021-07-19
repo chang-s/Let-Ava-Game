@@ -7,8 +7,7 @@ public class NaughtyNotebook : MonoBehaviour
     private GameManager gameManager;
 
     public GameObject paperplane;
-    public GameObject homework;
-    public GameObject NNSpawner;    
+    public GameObject homework;   
 
     private float timeTillSpawn;
     public float startTimeTillSpawn;
@@ -77,7 +76,7 @@ public class NaughtyNotebook : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
         //Removes the NN when it passes behind the spawner
-        if (transform.position.x > NNSpawner.transform.position.x) {
+        if (transform.position.x > gameManager.rightScreenEdge + 6) {
             Destroy(gameObject);
         }
     }

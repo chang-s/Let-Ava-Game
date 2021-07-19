@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GameManager gameManager;  
+    
+    public GameObject naughtyNotebook;
+    private GameObject createdNN;
     public GameObject obstacle_ground;
     public GameObject obstacle_ground2;
     public GameObject obstacle_ground3;    
@@ -12,27 +16,29 @@ public class Spawner : MonoBehaviour
     public GameObject heart;
     public GameObject coin;
 
-    private float _timeBtwSpawn;
+    private float timeBtwSpawn;
     public float minTimeBtwSpawn;
     public float maxTimeBtwSpawn;
     public float maxDifficultyMinTimeBtwSpawn;
     public float maxDifficultyMaxTimeBtwSpawn;
-    private Vector3 _startPosition;
     public int minAirHeight, maxAirHeight;
 
+    public float startTimeTillNNSpawn;
+    private float timeBtwNNSpawn;
 
-    void Start () {
-        _startPosition = transform.position;
+    void Start() {
+        timeBtwNNSpawn = startTimeTillNNSpawn;
     }
 
     // Update is called once per frame
     void Update() {
-        if (_timeBtwSpawn <= 0) {
+        if (timeBtwSpawn <= 0) {
 
             GameObject obst;
 
             float rand1 = Random.value;
             float rand2 = Random.value;
+            Vector3 spawnPos;
             // Handle pickups
             if (rand1 < 0.5) {
                 float rand_height = Random.Range(1, maxAirHeight);
@@ -43,7 +49,8 @@ public class Spawner : MonoBehaviour
                     obst = heart;
                 }
 
-                Instantiate(obst, _startPosition + new Vector3(0.0f, rand_height, 0.0f), Quaternion.identity);
+                spawnPos = new Vector3(gameManager.rightScreenEdge + 5, gameManager.groundHeight + rand_height, 0.0f);
+                Instantiate(obst, spawnPos, Quaternion.identity);
 
             // Handle Flying Obstacles
             } else if (rand1 < 0.7) {
@@ -56,7 +63,8 @@ public class Spawner : MonoBehaviour
                     obst = obstacle_air2;
                 }
                 
-                Instantiate(obst, _startPosition + new Vector3(0.0f, rand_height, 0.0f), Quaternion.identity);
+                spawnPos = new Vector3(gameManager.rightScreenEdge + 5, gameManager.groundHeight + rand_height, 0.0f);
+                Instantiate(obst, spawnPos, Quaternion.identity);
             
             // Handle Ground obstacles (most common)    
             } else {
@@ -69,13 +77,23 @@ public class Spawner : MonoBehaviour
                     obst = obstacle_ground3;
                 }
 
-                Instantiate(obst, transform.position, Quaternion.identity);
+                spawnPos = new Vector3(gameManager.rightScreenEdge + 5, gameManager.groundHeight, 0.0f);
+                Instantiate(obst, spawnPos, Quaternion.identity);
             }
-            
+
             // Randomly set the time for the next obstacle
-            _timeBtwSpawn = Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn);
+            timeBtwSpawn = Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn);
         } else {
-            _timeBtwSpawn -= Time.deltaTime;
+            timeBtwSpawn -= Time.deltaTime;
+        }
+
+        // Handles Naughty Notebook Spawn
+        if (timeBtwNNSpawn <= 0) {
+            Vector3 spawnPos = new Vector3(gameManager.rightScreenEdge + 5, gameManager.groundHeight, 0.0f);
+            createdNN = Instantiate(naughtyNotebook, spawnPos, Quaternion.identity);
+            timeBtwNNSpawn = 20;
+        } else if (createdNN == null || !createdNN.activeInHierarchy) {
+            timeBtwNNSpawn -= Time.deltaTime;
         }
 
         // Update difficulty
