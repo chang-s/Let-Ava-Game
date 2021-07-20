@@ -95,6 +95,10 @@ PrefabInstance:
       value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4926518847972249206, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
+      propertyPath: startTimeTillSpawn
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926518847972249206, guid: a8acb538c70689e4bbc3d6b9c5036b23, type: 3}
       propertyPath: runBackXPosFromLeft
       value: 15
       objectReference: {fileID: 0}

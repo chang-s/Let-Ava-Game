@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212905997852872750}
   - component: {fileID: 6534302758716814967}
   - component: {fileID: 1987168073805547041}
-  - component: {fileID: 1405962249870796792}
+  - component: {fileID: 9031150684149500558}
   m_Layer: 0
   m_Name: CoinMultiplier
   m_TagString: Pickup
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37bcf7b6e666f41418bb8f416a4e4a20, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21586865, g: 0.37755197, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6649153, y: 0.6327909}
   m_EdgeRadius: 0
---- !u!114 &1405962249870796792
+--- !u!114 &9031150684149500558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754417599737178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4232e9bd3a0e5da42a5c5060ec5d7295, type: 3}
+  m_Script: {fileID: 11500000, guid: 56c43169121cc0f42a1ec7addcf149f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCoinRate: 5
+  time: 10

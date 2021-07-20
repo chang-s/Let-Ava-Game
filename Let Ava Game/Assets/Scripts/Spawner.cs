@@ -15,6 +15,7 @@ public class Spawner : MonoBehaviour
     public GameObject obstacle_air2;
     public GameObject heart;
     public GameObject coin;
+    public GameObject coinMultipler;
 
     private float timeBtwSpawn;
     public float minTimeBtwSpawn;
@@ -43,8 +44,10 @@ public class Spawner : MonoBehaviour
             if (rand1 < 0.5) {
                 float rand_height = Random.Range(1, maxAirHeight);
                 
-                if (rand2 < 0.97) {
+                if (rand2 < 0.85) {
                     obst = coin;
+                } else if (rand2 < 0.95) {
+                    obst = coinMultipler;
                 } else {
                     obst = heart;
                 }
