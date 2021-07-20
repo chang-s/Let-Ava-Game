@@ -28,11 +28,5 @@ public class Heart : MonoBehaviour
             soundManager.PlayHeartCollect();
             Destroy(gameObject);
         }
-
-        //Is is destroyed by projectiles
-        if (other.CompareTag("Projectile")) {
-            soundManager.PlayCollectDestroy();
-            Destroy(gameObject);
-        }
     }
 }

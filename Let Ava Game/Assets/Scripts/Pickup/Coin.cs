@@ -28,11 +28,5 @@ public class Coin : MonoBehaviour
             gameManager.score += 1;
             Destroy(gameObject);
         }
-
-        //Is is destroyed by projectiles
-        if (other.CompareTag("Projectile")) {
-            soundManager.PlayCollectDestroy();
-            Destroy(gameObject);
-        }
     }
 }

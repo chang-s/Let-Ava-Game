@@ -29,8 +29,11 @@ public class ProjectileBehavior : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        GameObject splsh = Instantiate(splash, transform.position + new Vector3(1f, -1.0f, 0.0f), Quaternion.Euler(0, 0, 35));
-        Destroy(gameObject);
+        // Disappears when hits the obstacle
+        if (other.CompareTag("Obstacle")) {
+            GameObject splsh = Instantiate(splash, transform.position + new Vector3(1f, -1.0f, 0.0f), Quaternion.Euler(0, 0, 35));
+            Destroy(gameObject);
+        }
     }
 
     public void setSpeed(float speed) {

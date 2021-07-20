@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1987168073805547041}
   m_Layer: 0
   m_Name: Obstacle_Ground 2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805602869
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7b7962d6ff6e8402bbc2d6926e62b792, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 10
+  speedOffset: 0
   isDestructible: 1
   pow: {fileID: 1178155352086516124}
 --- !u!50 &6534302758716814967
@@ -203,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 336303957452779562, guid: f4c618a408d8641e9bc4bcdb81c317bd, type: 3}
       propertyPath: m_SortingOrder
