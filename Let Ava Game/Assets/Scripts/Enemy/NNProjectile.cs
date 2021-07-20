@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class NNProjectile : MonoBehaviour
 {
+    private GameManager gameManager;
+    private SoundManager soundManager;
+    private Player player;
     public int damage = 1;
     public float speedOffset = 2;
     public float rotatingSpeed = 200;
     private bool passedPlayer = false;
-    private Player player;
-    private SoundManager soundManager;
-    private GameManager gameManager;
     Rigidbody2D rb;
     public ParticleSystem pow;
 
     void Start() {
-        player = GameObject.Find("Player").GetComponent<Player>();
-        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        soundManager = gameManager.soundManager;
+        player = gameManager.player;
         rb = GetComponent<Rigidbody2D> ();
     }
  

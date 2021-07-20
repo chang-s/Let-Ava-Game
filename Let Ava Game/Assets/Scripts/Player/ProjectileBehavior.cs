@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {    
-    private GameObject _floor;
+    public GameManager gameManager;
+    private Player player;
+    private GameObject floor;
     public GameObject splash;
-    private Player _player;
-    private float _speed = 0;
+    private float speed = 0;
     Rigidbody2D rb;
 
     void Start() {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = gameManager.player;
+        
         rb = GetComponent<Rigidbody2D> ();
-        _player = GameObject.Find("Player").GetComponent<Player>();
-        _floor = GameObject.Find("Right Road");
+        floor = GameObject.Find("Right Road");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.angularVelocity = -(_player.maxProjectileSpeed - _speed);
+        rb.angularVelocity = -(player.maxProjectileSpeed - speed);
         rb.velocity = transform.right * 10;
 
         if (transform.position.x > 24 || transform.position.y < 2) {
@@ -36,7 +39,7 @@ public class ProjectileBehavior : MonoBehaviour
         }
     }
 
-    public void setSpeed(float speed) {
-        _speed = speed;
+    public void setSpeed(float newSpeed) {
+        speed = newSpeed;
     }
 }

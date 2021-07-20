@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public Player player;
     public GameManager gameManager;
     public Text distanceText;
     public Text coinText;

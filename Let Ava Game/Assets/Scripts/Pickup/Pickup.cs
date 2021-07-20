@@ -9,9 +9,9 @@ public class Pickup : MonoBehaviour
     protected Player player;
 
     void Start() {
-        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+        soundManager = gameManager.soundManager;
+        player = gameManager.player;
     }
 
     void Update() {

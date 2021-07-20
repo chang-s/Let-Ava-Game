@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    private GameManager gameManager;
+    private SoundManager soundManager;
+
     public int damage = 1;
     public float speedOffset = 0;
     public bool isDestructible;
-    private SoundManager soundManager;
-    private GameManager gameManager;
     public ParticleSystem pow;
 
     void Start() {
-        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        soundManager = gameManager.soundManager;
     }
 
     void Update() {

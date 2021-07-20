@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
-    public SoundManager soundManager;
     public GameManager gameManager;
+    private SoundManager soundManager;
     
     private Rigidbody2D rb;
 
@@ -40,6 +39,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = gameManager.soundManager;
         extraJumps = extraJumpValue;
         prevHealth = health;
         anim = GetComponent<Animator>();
