@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
+  - Pickup
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -44,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 40096145
+    locked: 0
+  - name: Pickup
+    uniqueID: 3499356823
     locked: 0
   - name: Obstacles
     uniqueID: 805602869
